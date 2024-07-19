@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/261028f2b2.js" crossorigin="anonymous"></script>
+    <title>Login</title>
+    <link rel="stylesheet" href="./Css/Login.css">
+    <link rel="stylesheet" href="./Css/Modal.css">
+</head>
+<body>
+
+    <header>
+
+        <div class="logo">
+            <img src="./imgpro/log.png" alt=""  width="100">
+        </div>
+    
+       <nav class="navegacion"> <!-- Creando el menú -->
+        <a href="Index.html">Inicio</a>
+        <a href="Productos.html">Productos</a>
+        <a href="Nosotros.html">Nosotros</a>
+        <a href="Contacto.html">Contacto</a> 
+        <button class="btn" onclick="ocultarregistro();">Iniciar Secion</button>
+        </nav>
+    </header>
+
+    <!-- <iframe src="./fondo.html" frameborder="0"></iframe> -->
+
+    <div class="fondo">
+        <span class="icono-cerrar"><i class="fa-solid fa-xmark"></i></span>
+    
+
+    <div class="contenedor login" id="contenedor login">
+        <h2>Iniciar Sesion</h2>
+        <form action="./Php/Login.php" method="post">
+            <div class="contenedor-input">
+                <span class="icono"><i class="fa-solid fa-envelope"></i></span>
+                <input type="email" name="email" required>
+                <label for="#">Email</label>
+            </div>
+
+            <div class="contenedor-input">
+                <span class="icono"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" name="contraseña" required>
+                <label for="#">Contraseña</label>
+            </div>
+
+            <div class="recordar">
+                <a href="#">¿Olvidastes la Contraseña?</a>
+            </div>
+
+            <button type="submit" class="btn">Iniciar Sesión</button>
+
+            <div class="registrar">
+                <p>¿No tienes cuenta? <a href="#" class="registrar-link" onclick="ocultar();">Registrarse</a></p>
+
+            </div>
+        </form>
+    </div>
+                
+            <div class="contenedor-form registrar">
+                <h2>Registrarse</h2>
+                <form id="registerForm" action="./Php/RegistroLogin.php" method="post">
+
+                    <div class="contenedor-input">
+                        <span class="icono"><i class="fa-solid fa-user"></i></i></span>
+                        <input type="text" name="nombrere" required>
+                        <label for="#">Nombre de Usuario</label>
+                    </div>
+
+                    <div class="contenedor-input">
+                        <span class="icono"><i class="fa-solid fa-envelope"></i></span>
+                        <input type="email" name="emailre" required>
+                        <label for="#">Email</label>
+                    </div>
+        
+                    <div class="contenedor-input">
+                        <span class="icono"><i class="fa-solid fa-lock"></i></span>
+                        <input type="password" name="contraseñare" required>
+                        <label for="#">Contraseña</label>
+                    </div>
+
+                    <div class="recordar">
+                        <label for="#"><input type="checkbox" id="termsCheckbox">Acepto los terminos y condiciones</label>
+                    </div>
+
+                    <button type="submit" class="btn">Registrame</button>
+
+                    <div class="registrar">
+                        <p>¿Tienes una cuenta? <a href="#" class="login-link" onclick="mostrarLogin()">Iniciar Sesion</a></p>
+                    </div>
+                </form>
+            </div>
+            <script>
+                document.getElementById("registerForm").onsubmit = function(event) {
+                    const checkbox = document.getElementById("termsCheckbox");
+                    if (!checkbox.checked) {
+                        alert("Debes aceptar los términos y condiciones para registrarte.");
+                        event.preventDefault(); // Evita el envío del formulario
+                    }
+                };
+            </script>
+    </div>
+
+    
+
+    <script src="./Js/login.js"></script> 
+
+    <!-- <button id="open">
+        Hacer Click
+    </button> -->
+
+    <div class="modal-container" id="modal-container">
+        <div class="modal">
+
+            <i class="fa-regular fa-circle-xmark"></i>
+            
+            <h1>Acceso Denegado</h1>
+            <button id="close">Reintentar</button>
+        </div>
+    </div>
+    <script src="./Js/Modal.js"></script>
+
+</body>
+</html>
